@@ -41,9 +41,6 @@ __global__ void max_flops(uint32_t *startClk, uint32_t *stopClk, T *data1, T *da
 				"fma.rn.f32 %0, %1, %2 , %0;\n\t"
 				"}" : "+f"(result),"+f"(s1),"+f"(s2)
 		);
-
-
-
 	}
 	// synchronize all threads
 	asm volatile("bar.sync 0;");

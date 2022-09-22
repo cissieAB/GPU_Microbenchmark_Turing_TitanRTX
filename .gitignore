@@ -1,3 +1,9 @@
 bin/
 *.o
 *.out
+
+.idea
+./l1_bw_32f/l1_bw_32f
+./mem_bw/mem_bw
+./MaxFlops/MaxFlops
+./l2_bw_32f/l2_bw_32f

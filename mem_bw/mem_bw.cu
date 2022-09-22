@@ -1,22 +1,18 @@
 
 //This benchmark measures the maximum read bandwidth of GPU memory
 //Compile this file using the following command to disable L1 cache:
-//    nvcc -Xptxas -dlcm=cg -Xptxas -dscm=wt l2_bw.cu
-
-//This code have been tested on Volta V100 architecture
-//You can check the mem BW from the NVPROF (dram_read_throughput+dram_write_throughput)
+//    nvcc -Xptxas -dlcm=cg -Xptxas -dscm=wt *.cu
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <cuda.h>
 
-#define BLOCKS_NUM 160
+#define BLOCKS_NUM 432 // 108 SMs
 #define THREADS_NUM 1024 //thread number/block
 #define TOTAL_THREADS (BLOCKS_NUM*THREADS_NUM)
-#define ARRAY_SIZE 8388608   //Array size has to exceed L2 size to avoid L2 cache residence
+#define ARRAY_SIZE 20971520   //The number of float number of each array. Total array size  has to exceed L2 size to avoid L2 cache residency
 #define WARP_SIZE 32 
-#define L2_SIZE 1572864 //number of floats L2 can store
-#define clock_freq_MHZ 1132
+#define L2_SIZE 10486760 //number of floats L2 can store, 40MB L2
 
 // GPU error check
 #define gpuErrchk(ans) { gpuAssert((ans), __FILE__, __LINE__); }
