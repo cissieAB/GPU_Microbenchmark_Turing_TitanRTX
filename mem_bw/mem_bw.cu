@@ -7,12 +7,12 @@
 #include <stdlib.h>
 #include <cuda.h>
 
-#define BLOCKS_NUM 432 // 108 SMs
+#define BLOCKS_NUM 360
 #define THREADS_NUM 1024 //thread number/block
 #define TOTAL_THREADS (BLOCKS_NUM*THREADS_NUM)
 #define ARRAY_SIZE 20971520   //The number of float number of each array. Total array size  has to exceed L2 size to avoid L2 cache residency
 #define WARP_SIZE 32 
-#define L2_SIZE 10486760 //number of floats L2 can store, 40MB L2
+#define L2_SIZE 1572864 //number of floats L2 can store. TitanRTX L2 is 6MB. T4 L2 is 4 MB
 
 // GPU error check
 #define gpuErrchk(ans) { gpuAssert((ans), __FILE__, __LINE__); }

@@ -9,8 +9,8 @@
 #define WARP_SIZE 32
 #define REPEAT_TIMES 256
 #define ARRAY_SIZE 16384 //ARRAY_SIZE has to be less than L1_SIZE
-#define L1_SIZE_PER_BLOCK 12288  //L1 size per block in f32 numbers. A100 L1 per block is 48KB.
-#define L1_SIZE 41984  // L1 size in 32-bit. A100 L1 size is 164KB, i.e. 41K of 32-bit
+#define L1_SIZE_PER_BLOCK 12288  //L1 size per block in f32 numbers. T4 L1 per block is 48KB.
+#define L1_SIZE 16384  // L1 size in 32-bit. T4/TitanRTX L1 size is 64KB.
 
 
 // GPU error check

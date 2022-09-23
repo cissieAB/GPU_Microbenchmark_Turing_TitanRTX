@@ -2,7 +2,8 @@ GENCODE_SM70 := -gencode=arch=compute_70,code=\"sm_70,compute_70\"
 GENCODE_SM75 := -gencode=arch=compute_75,code=\"sm_75,compute_75\"
 GENCODE_SM80 := -gencode=arch=compute_80,code=\"sm_80,compute_80\"
 
-CUOPTS = $(GENCODE_SM80)  # for A100
+#CUOPTS = $(GENCODE_SM80)  # for A100
+CUOPTS = $(GENCODE_SM75)  # for T4 and TitanRTX
 
 BASE_DIR := $(shell pwd)
 BIN_DIR := $(BASE_DIR)/bin

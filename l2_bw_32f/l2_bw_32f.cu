@@ -7,13 +7,13 @@
 #include <stdlib.h>
 #include <cuda.h>
 
-#define BLOCKS_NUM 540  // #SM = 108
+#define BLOCKS_NUM 360  // T4 #SM = 40, TitanRTX #SM = 72
 #define THREADS_NUM 1024 //thread number per block
 #define TOTAL_THREADS (BLOCKS_NUM * THREADS_NUM)
 #define REPEAT_TIMES 2048 
 #define WARP_SIZE 32 
 #define ARRAY_SIZE (TOTAL_THREADS + REPEAT_TIMES * WARP_SIZE)  // Array size must not exceed L2 size
-#define L2_SIZE 10485760 // L2 size in 32-bit. A100 L2 size is 40MB.
+#define L2_SIZE 1048576 // L2 size in 32-bit. T4 L2 size is 4MB. TitanRTX L2 size is 6MB.
 
 // GPU error check
 #define gpuErrchk(ans) { gpuAssert((ans), __FILE__, __LINE__); }
